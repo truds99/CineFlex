@@ -9,15 +9,17 @@ import SeatsPage from '../SeatsPage/SeatsPage'
 
 function App() {
 
-  
+  const [movieSessions, setMovieSessions] = useState([]);
   
   return (
         <BrowserRouter>
               <div className='topMenu'><Link to='/'>CINEFLEX</Link></div>
             <Routes>
                 <Route path='/' element={<Movies />}/>
-                <Route path='/movie/:idMovie' element={<Sessions />}/>
-                <Route path='/session/:idSession' element={<SeatsPage />}/>
+                <Route path='/movie/:idMovie' element={<Sessions
+                  setMovieSessions={setMovieSessions} movieSessions={movieSessions} 
+                />}/>
+                <Route path='/session/:idSession' element={<SeatsPage movieSessions={movieSessions} />}/>
             </Routes>
         </BrowserRouter>
   )

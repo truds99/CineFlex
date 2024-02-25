@@ -6,8 +6,8 @@ import Session from "../Session/Session"
 import Bottom from "../Bottom/Bottom"
 
 
-export default function Sessions() {
-    const [movieSessions, setMovieSessions] = useState([]);
+export default function Sessions({ setMovieSessions, movieSessions }) {
+    
     const { idMovie } = useParams();
 
     useEffect(() => {
@@ -28,7 +28,7 @@ export default function Sessions() {
                     : ''
                 }
             </div>
-            <Bottom posterURL={movieSessions.posterURL} title={movieSessions.title}/>
+            <Bottom posterURL={movieSessions.posterURL} title={movieSessions.title} session={undefined} />
         </>
     )
 }

@@ -3,8 +3,6 @@ import { useEffect, useState } from 'react'
 
 export default function Form({selectedSeats, setFormData, formData}) {
     
-    console.log(formData);
-    
     function handleChange(e, numbSeat, newValue) {
         setFormData((prevFormData) => {
             const updatedData = prevFormData.map((elm) =>

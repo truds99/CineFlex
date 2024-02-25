@@ -1,0 +1,60 @@
+.seats {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 336px;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.seatsPage {
+    padding: 0 8%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.labelSeats {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 26px;
+}
+
+.labelDuo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 20px;
+}
+
+.label {
+    width: 26px;
+    height: 25px;
+    border-radius: 50%;
+    margin-bottom: 7px;
+}
+
+.label.true {
+    background-color: #C3CFD9;
+    border: 1px solid #808F9D
+}
+
+.label.false {
+    background-color: #FBE192;
+    border: 1px solid #F7C52B
+}
+
+.label.selected {
+    background-color: #8DD7CF;
+    border: 1px solid #1AAE9E
+}
+
+h4 {
+    font-size: 13px;
+    font-weight: 400;
+    text-align: center;
+    color: #4E5A65;
+}

@@ -3,12 +3,14 @@ import './seatsPageStyle.css'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import SeatCircle from '../SeatCircle/SeatCircle'
+import Form from '../Form/Form'
+import Bottom from '../Bottom/Bottom'
 
 export default function SeatsPage() {
     const { idSession } = useParams();
     const [seats, setSeats] = useState({});
-
-    console.log(seats);
+    const [selectedSeats, setSelectedSeats] = useState([]);
+    const [formData, setFormData] = useState([]);
 
     useEffect (() => {
         const promise = axios.get(`https://mock-api.driven.com.br/api/v8/cineflex/showtimes/${idSession}/seats`)
@@ -21,8 +23,12 @@ export default function SeatsPage() {
         <div className='seatsPage'>
             <h1>Select the seat(s)</h1>
             <div className='seats'>
-                { seats.seats ? seats.seats.map((elm, idx) => <SeatCircle 
-                    key={idx} numberSeat={elm.name} isAvailable={elm.isAvailable} />) : ''
+                { seats.seats ? seats.seats.map((elm, idx) => 
+                <SeatCircle 
+                    key={idx} numberSeat={elm.name} isAvailable={elm.isAvailable}
+                    setSelectedSeats={setSelectedSeats} selectedSeats={selectedSeats}
+                    formData={formData} setFormData={setFormData}
+                />) : ''
                 }
             </div>
             <div className='labelSeats'>
@@ -39,6 +45,8 @@ export default function SeatsPage() {
                     <h4>Unavailable</h4>
                 </div>
             </div>
+            <Form selectedSeats={selectedSeats} formData={formData} setFormData={setFormData}/>
+            <Bottom />
         </div>
     )
 }

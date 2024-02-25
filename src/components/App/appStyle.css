@@ -1,5 +1,6 @@
 * {
     font-family: 'Roboto', sans-serif !important;
+    overflow-x: hidden;
 }
 
 a {
@@ -28,5 +29,9 @@ a {
     font-weight: 400;
     box-shadow: 0 4px 6px #888888;
     z-index: 1;
+}
 
+.topMenu a{
+    min-height: 37px;
+    overflow-y: hidden;
 }

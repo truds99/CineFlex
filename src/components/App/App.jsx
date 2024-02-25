@@ -8,6 +8,8 @@ import { Link } from 'react-router-dom'
 import SeatsPage from '../SeatsPage/SeatsPage'
 
 function App() {
+
+  
   
   return (
         <BrowserRouter>

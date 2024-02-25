@@ -13,6 +13,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    max-width: 100%;
 }
 
 .labelSeats {
@@ -56,5 +57,6 @@ h4 {
     font-size: 13px;
     font-weight: 400;
     text-align: center;
+    min-height: 16px    ;
     color: #4E5A65;
 }

@@ -1,0 +1,13 @@
+.sessions {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0 8%;
+    width: 100%;
+    margin-bottom: 150px;
+}
+
+
+
+

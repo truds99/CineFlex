@@ -6,6 +6,7 @@ import Sessions from '../Sessions/Sessions'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import SeatsPage from '../SeatsPage/SeatsPage'
+import SuccessPage from '../SuccessPage/SuccessPage'
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
                   setMovieSessions={setMovieSessions} movieSessions={movieSessions} 
                 />}/>
                 <Route path='/session/:idSession' element={<SeatsPage movieSessions={movieSessions} />}/>
+                <Route path='/success' element={<SuccessPage />} />
             </Routes>
         </BrowserRouter>
   )

@@ -49,3 +49,18 @@ label{
     font-weight: 400;
     color: #293845;
 }
+
+form > button {
+    max-width: 100%;
+    width: 225px;
+    height: 42px;
+    border-radius: 3px;
+    background-color: #E8833A;
+    font-size: 18px;
+    font-weight: 400;
+    border: none;
+    color: white;
+    margin-top: 57px;
+    align-self: center;
+    cursor: pointer;
+}

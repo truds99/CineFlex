@@ -9,19 +9,32 @@ import SeatsPage from '../SeatsPage/SeatsPage'
 import SuccessPage from '../SuccessPage/SuccessPage'
 
 function App() {
-
+  const [movies, setMovies] = useState([]);
   const [movieSessions, setMovieSessions] = useState([]);
+  const [seats, setSeats] = useState({});
+  const [formData, setFormData] = useState([]);
+  const [selectedSeats, setSelectedSeats] = useState([]);
   
   return (
         <BrowserRouter>
-              <div className='topMenu'><Link to='/'>CINEFLEX</Link></div>
+            <div className='topMenu'>
+                <p>CINEFLEX</p>
+            </div>
             <Routes>
-                <Route path='/' element={<Movies />}/>
+                <Route path='/' element={<Movies movies={movies} setMovies={setMovies}/>}/>
                 <Route path='/movie/:idMovie' element={<Sessions
-                  setMovieSessions={setMovieSessions} movieSessions={movieSessions} 
+                    setMovieSessions={setMovieSessions} movieSessions={movieSessions}
+                    movies={movies} setMovies={setMovies}
                 />}/>
-                <Route path='/session/:idSession' element={<SeatsPage movieSessions={movieSessions} />}/>
-                <Route path='/success' element={<SuccessPage />} />
+                <Route path='/session/:idSession' element={<SeatsPage movieSessions={movieSessions}
+                    seats={seats} setSeats={setSeats} formData={formData} setFormData={setFormData}
+                    selectedSeats={selectedSeats} setSelectedSeats={setSelectedSeats}
+                />}/>
+                <Route path='/success' element={<SuccessPage
+                    movies={movies} movieSessions={movieSessions} seats={seats} formData={formData}
+                    setSelectedSeats={setSelectedSeats} setFormData={setFormData} setSeats={setSeats}
+                    setMovieSessions={setMovieSessions} setMovies={setMovies}
+                />}/>
             </Routes>
         </BrowserRouter>
   )

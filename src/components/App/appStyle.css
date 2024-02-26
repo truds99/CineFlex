@@ -5,7 +5,6 @@
 
 a {
     text-decoration: none;
-    color: #E8833A;
 }
 
 #root {
@@ -31,7 +30,7 @@ a {
     z-index: 1;
 }
 
-.topMenu a{
+.topMenu p{
     min-height: 37px;
     overflow-y: hidden;
 }

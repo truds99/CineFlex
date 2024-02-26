@@ -6,11 +6,11 @@ import SeatCircle from '../SeatCircle/SeatCircle'
 import Form from '../Form/Form'
 import Bottom from '../Bottom/Bottom'
 
-export default function SeatsPage({ movieSessions }) {
+export default function SeatsPage({ movieSessions, seats, setSeats, formData,
+    setFormData, selectedSeats, setSelectedSeats }) {
+        
     const { idSession } = useParams();
-    const [seats, setSeats] = useState({});
-    const [selectedSeats, setSelectedSeats] = useState([]);
-    const [formData, setFormData] = useState([]);
+    
     
     useEffect (() => {
         const promise = axios.get(`https://mock-api.driven.com.br/api/v8/cineflex/showtimes/${idSession}/seats`)
@@ -46,7 +46,9 @@ export default function SeatsPage({ movieSessions }) {
                 </div>
             </div>
             <Form selectedSeats={selectedSeats} formData={formData} setFormData={setFormData}/>
-            <Bottom posterURL={movieSessions.posterURL} title={movieSessions.title} session={seats.day ? {hour: seats.name, weekday: seats.day.weekday} : ''}/>
+            <Bottom posterURL={movieSessions.posterURL} title={movieSessions.title} 
+                session={seats.day ? {hour: seats.name, weekday: seats.day.weekday} : ''}
+            />
         </div>
     )
 }

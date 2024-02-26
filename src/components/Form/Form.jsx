@@ -1,5 +1,4 @@
 import './formStyle.css'
-import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 
@@ -27,13 +26,12 @@ export default function Form({selectedSeats, setFormData, formData}) {
 
     function handleForm(e){
         e.preventDefault();
+        if (formData.length === 0) return;
         if (!isValidsCPF()) return;
-    
         const object = {
             ids: formData.map(elm => elm.idAssento),
             compradores: formData
         }
-        console.log(object);
         const promise = axios.post('https://mock-api.driven.com.br/api/v8/cineflex/seats/book-many', object);
             promise
                 .catch(() => alert("error reserving seats"))

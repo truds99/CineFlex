@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
+import { useEffect } from "react"
+import { useParams, useNavigate } from "react-router-dom"
 import axios from 'axios'
 import './sessionsStyle.css'
 import Session from "../Session/Session"
@@ -7,8 +7,8 @@ import Bottom from "../Bottom/Bottom"
 
 
 export default function Sessions({ setMovieSessions, movieSessions }) {
-    
     const { idMovie } = useParams();
+    const navigate = useNavigate();
 
     useEffect(() => {
         const promise = axios.get(`https://mock-api.driven.com.br/api/v8/cineflex/movies/${idMovie}/showtimes`);
@@ -17,9 +17,14 @@ export default function Sessions({ setMovieSessions, movieSessions }) {
             .then(res => setMovieSessions(res.data))
     }, [])
 
+    function backPage() {
+        setMovieSessions([]);
+        navigate('/');
+    }
 
     return (
-        <>
+        <>  
+            <ion-icon onClick={backPage} name="arrow-back-outline"></ion-icon>
             <h1>Select a session</h1>
             <div className="sessions">
                 {movieSessions.days ? 

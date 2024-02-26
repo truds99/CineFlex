@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import './seatsPageStyle.css'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import SeatCircle from '../SeatCircle/SeatCircle'
 import Form from '../Form/Form'
@@ -8,7 +8,7 @@ import Bottom from '../Bottom/Bottom'
 
 export default function SeatsPage({ movieSessions, seats, setSeats, formData,
     setFormData, selectedSeats, setSelectedSeats }) {
-        
+    const navigate = useNavigate();
     const { idSession } = useParams();
     
     
@@ -19,8 +19,16 @@ export default function SeatsPage({ movieSessions, seats, setSeats, formData,
             .then(res => setSeats(res.data))
     }, [])
 
+    function backPage() {
+        setSeats({});
+        setFormData([]);
+        setSelectedSeats([]);
+        navigate(`/movie/${movieSessions.id}`);
+    }
+
     return (
         <div className='seatsPage'>
+            <ion-icon onClick={backPage} name="arrow-back-outline"></ion-icon>
             <h1>Select the seat(s)</h1>
             <div className='seats'>
                 { seats.seats ? seats.seats.map((elm, idx) => 

@@ -7,7 +7,7 @@
     flex-direction: column;
 }
 
-h1 {
+.successPage h1 {
     font-size: 24px;
     font-weight: 700;
     line-height: 28px;

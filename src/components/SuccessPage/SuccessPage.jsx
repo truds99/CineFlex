@@ -21,7 +21,7 @@ export default function SuccessPage({movieSessions, seats, formData,
     function backToHome() {
         setFormData([]);
         setMovies([]);
-        setMovieSessions([]);
+        setMovieSessions({});
         setSeats({});
         setSelectedSeats([]);
         navigate('/');

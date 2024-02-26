@@ -4,13 +4,12 @@ import Movies from '../Movies/Movies'
 import './appStyle.css'
 import Sessions from '../Sessions/Sessions'
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
 import SeatsPage from '../SeatsPage/SeatsPage'
 import SuccessPage from '../SuccessPage/SuccessPage'
 
 function App() {
   const [movies, setMovies] = useState([]);
-  const [movieSessions, setMovieSessions] = useState([]);
+  const [movieSessions, setMovieSessions] = useState({});
   const [seats, setSeats] = useState({});
   const [formData, setFormData] = useState([]);
   const [selectedSeats, setSelectedSeats] = useState([]);

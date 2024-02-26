@@ -3,6 +3,17 @@
     overflow-x: hidden;
 }
 
+ion-icon {
+    position: fixed;
+    color: #E8833A;
+    top: 13px;
+    left: 8%;
+    z-index: 3;
+    height: 40px;
+    width: 70px;
+    cursor: pointer;
+}
+
 a {
     text-decoration: none;
 }

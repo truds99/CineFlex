@@ -1,9 +1,16 @@
 import './successPageStyle.css'
 import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 
 export default function SuccessPage({movieSessions, seats, formData,
     setFormData, setMovies, setMovieSessions, setSeats, setSelectedSeats}) {
     const navigate = useNavigate();
+
+    useEffect (() => {
+        if(!seats.day) {
+            backToHome();
+        }
+    }, [seats])
 
     function formatCPF(digitsString) {
         const digitRegex = /\D/g;
@@ -31,7 +38,7 @@ export default function SuccessPage({movieSessions, seats, formData,
         <div className='successPage'>
             <h1>Reservation made successfully</h1>
             <h6>Movie and session</h6>
-            <p>{movieSessions.title}<br />{seats.day.date} {seats.name}</p>
+            <p>{movieSessions.title}<br />{ seats.day && seats.day.date } { seats.name && seats.name }</p>
             {formData.map((elm, idx) => (
                 <div className='buyers' key={idx}>
                     <h6>Buyer</h6>

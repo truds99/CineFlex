@@ -11,6 +11,16 @@ export default function SeatsPage({ movieSessions, seats, setSeats, formData,
     const navigate = useNavigate();
     const { idSession } = useParams();
     
+    useEffect (() => {
+        if(!movieSessions.posterURL) {
+            setSeats({});
+            setFormData([]);
+            setSelectedSeats([]);
+            navigate('/');
+        }
+    }, [movieSessions])
+    
+    
     
     useEffect (() => {
         const promise = axios.get(`https://mock-api.driven.com.br/api/v8/cineflex/showtimes/${idSession}/seats`)

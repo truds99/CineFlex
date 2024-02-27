@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 import { useParams, useNavigate } from "react-router-dom"
-import axios from 'axios'
+import { getShowTimes } from "../../services/cineflex"
 import './sessionsStyle.css'
 import Session from "../Session/Session"
 import Bottom from "../Bottom/Bottom"
@@ -11,8 +11,7 @@ export default function Sessions({ setMovieSessions, movieSessions }) {
     const navigate = useNavigate();
 
     useEffect(() => {
-        const promise = axios.get(`https://mock-api.driven.com.br/api/v8/cineflex/movies/${idMovie}/showtimes`);
-        promise
+        getShowTimes(idMovie)
             .catch(() => alert("error getting sessions"))
             .then(res => setMovieSessions(res.data))
     }, [])

@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import './seatsPageStyle.css'
 import { useParams, useNavigate } from 'react-router-dom'
-import axios from 'axios'
+import { getSeats } from '../../services/cineflex'
 import SeatCircle from '../SeatCircle/SeatCircle'
 import Form from '../Form/Form'
 import Bottom from '../Bottom/Bottom'
@@ -20,11 +20,8 @@ export default function SeatsPage({ movieSessions, seats, setSeats, formData,
         }
     }, [movieSessions])
     
-    
-    
     useEffect (() => {
-        const promise = axios.get(`https://mock-api.driven.com.br/api/v8/cineflex/showtimes/${idSession}/seats`)
-        promise
+        getSeats(idSession)
             .catch(() => alert("error getting seats"))
             .then(res => setSeats(res.data))
     }, [])

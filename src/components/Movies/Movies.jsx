@@ -1,15 +1,14 @@
 import './moviesStyle.css' 
 import { useEffect } from 'react'
-import axios from 'axios'
 import Movie from '../Movie/Movie'
+import { getMovies } from '../../services/cineflex'
 
 export default function Movies({movies, setMovies}) { 
 
     useEffect(() => {
-        const promise = axios.get("https://mock-api.driven.com.br/api/v8/cineflex/movies");
-        promise
-        .catch(() => alert("Error loading movies"))
-        .then(res => setMovies(res.data));
+        getMovies()
+            .catch(() => alert("Error loading movies"))
+            .then(res => setMovies(res.data));
     }, [])
 
     return (

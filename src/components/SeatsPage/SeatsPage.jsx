@@ -38,12 +38,12 @@ export default function SeatsPage({ movieSessions, seats, setSeats, formData,
             <ion-icon onClick={backPage} name="arrow-back-outline"></ion-icon>
             <h1>Select the seat(s)</h1>
             <div className='seats'>
-                { seats.seats ? seats.seats.map((elm, idx) => 
-                <SeatCircle 
-                    key={idx} numberSeat={elm.name} isAvailable={elm.isAvailable}
-                    setSelectedSeats={setSelectedSeats} selectedSeats={selectedSeats}
-                    formData={formData} setFormData={setFormData}
-                />) : ''
+                { seats.seats && seats.seats.map((elm, idx) => 
+                    <SeatCircle 
+                        key={idx} numberSeat={elm.name} isAvailable={elm.isAvailable}
+                        setSelectedSeats={setSelectedSeats} selectedSeats={selectedSeats}
+                        formData={formData} setFormData={setFormData}
+                    />)
                 }
             </div>
             <div className='labelSeats'>

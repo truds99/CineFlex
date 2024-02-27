@@ -33,8 +33,8 @@ export default function Form({selectedSeats, setFormData, formData}) {
             compradores: formData
         }
         postBooking(object)
-                .catch(() => alert("error reserving seats"))
-                .then(() => navigate('/success'));
+            .catch(() => alert("error reserving seats"))
+            .then(() => navigate('/success'));
     }
 
     return (

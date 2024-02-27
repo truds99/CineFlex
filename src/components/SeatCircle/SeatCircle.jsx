@@ -36,9 +36,8 @@ export default function SeatCircle ({
     }
 
     return (
-        <div onClick={handleClick} 
-            className={`seatCircle ${isAvailable} ${selected ? 'selected' : ''}`}>
-                {numberSeat < 10 ? `0${numberSeat}` : numberSeat}
+        <div onClick={handleClick} className={`seatCircle ${isAvailable} ${selected ? 'selected' : ''}`}>
+            {numberSeat < 10 ? `0${numberSeat}` : numberSeat}
         </div>
     )
 }

@@ -29,8 +29,8 @@ export default function Form({selectedSeats, setFormData, formData}) {
         if (formData.length === 0) return;
         if (!isValidsCPF()) return;
         const object = {
-            ids: formData.map(elm => elm.idAssento),
-            compradores: formData
+            ids: formData.map(elm => Number(elm.idAssento)),
+            compradores: formData.map(elm => ({ ...elm, idAssento: Number(elm.idAssento) }))
         }
         postBooking(object)
             .catch(() => alert("error reserving seats"))

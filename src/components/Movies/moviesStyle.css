@@ -1,5 +1,5 @@
 h1 {
-    margin: 110px auto 35px auto;
+    margin: 110px auto 35px auto !important;
     color: #293845;
     font-size: 24px;
     font-weight: 400;

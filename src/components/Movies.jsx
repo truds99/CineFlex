@@ -22,14 +22,6 @@ export default function Movies({movies, setMovies}) {
 }
 
 const Wrapper = styled.div`
-    h1 {
-        margin: 110px auto 35px auto !important;
-        color: #FFFFFF;
-        font-size: 24px;
-        font-weight: 400;
-        min-height: 36px;
-        text-align: center;
-    }
 
     & > div:nth-child(2) {
         display: flex;

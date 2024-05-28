@@ -20,7 +20,7 @@ export default function SeatCircle ({
                         setFormData(formData.filter(elm => elm.idAssento !== numberSeat))
                     }
                     else {
-                        if(confirm("you want to remove the seat and lose the filled data?")) {
+                        if(confirm("do you want to remove the seat and lose the filled data?")) {
                             setSelectedSeats(selectedSeats.filter(elm => elm !== numberSeat))
                             setSelected(!selected);
                             setFormData(formData.filter(elm => elm.idAssento !== numberSeat));

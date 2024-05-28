@@ -1,13 +1,13 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Movies from '../Movies/Movies'
-import Sessions from '../Sessions/Sessions'
+import Movies from './Movies'
+import Sessions from './Sessions/Sessions'
 import { useState } from 'react'
-import SeatsPage from '../SeatsPage/SeatsPage'
-import SuccessPage from '../SuccessPage/SuccessPage'
-import Top from '../Top'
+import SeatsPage from './SeatsPage/SeatsPage'
+import SuccessPage from './SuccessPage/SuccessPage'
+import Top from './Top'
 import { createGlobalStyle } from 'styled-components'
 
-function App() {
+export default function App() {
   const [movies, setMovies] = useState([]);
   const [movieSessions, setMovieSessions] = useState({});
   const [seats, setSeats] = useState({});
@@ -17,7 +17,7 @@ function App() {
   return (
         <BrowserRouter>
             <GlobalStyle />
-            <Top/>
+            <Top />
             <Routes>
                 <Route path='/' element={<Movies movies={movies} setMovies={setMovies}/>}/>
                 <Route path='/movie/:idMovie' element={<Sessions
@@ -37,8 +37,6 @@ function App() {
         </BrowserRouter>
   )
 }
-
-export default App
 
 const GlobalStyle = createGlobalStyle`
 

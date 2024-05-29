@@ -20,7 +20,7 @@ export default function Session({weekday, date, showtimes}) {
 const Wrapper = styled.div`
     width: 100%;
     background-color:#2B2D36;
-    padding: 6%;
+    padding: 24px 6%;
     border-radius: 8px;
     margin-bottom: 23px;
     height: 149px;
@@ -63,7 +63,9 @@ const Wrapper = styled.div`
         font-weight: 400;
         text-align: left;
         color: #FFFFFF;
-        min-height: 29px;
+        min-height: 35px;
         width: 100%;
+        display: flex;
+        align-items: center;
     }
 `

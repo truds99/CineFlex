@@ -2,7 +2,7 @@ import { useEffect } from "react"
 import { useParams, useNavigate } from "react-router-dom"
 import { getShowTimes } from "../services/cineflex"
 import Session from "./Session"
-import Bottom from "./Bottom/Bottom"
+import Bottom from "./Bottom"
 import styled from "styled-components"
 
 

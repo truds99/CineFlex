@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Movies from './Movies'
 import Sessions from './Sessions'
 import { useState } from 'react'
-import SeatsPage from './SeatsPage/SeatsPage'
+import SeatsPage from './SeatsPage'
 import SuccessPage from './SuccessPage/SuccessPage'
 import Top from './Top'
 import { createGlobalStyle } from 'styled-components'
@@ -49,7 +49,8 @@ const GlobalStyle = createGlobalStyle`
     body {
         padding-left: 10%;
         padding-right: 10%;
-        max-width: 100%
+        max-width: 100%;
+        background-color: #212226;
     }
 
     a {

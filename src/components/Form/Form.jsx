@@ -39,18 +39,15 @@ export default function Form({selectedSeats, setFormData, formData}) {
 
     return (
         <form onSubmit={handleForm}>
-            {selectedSeats.map((elm) => (
-                <div key={elm}>
-                    <h5>Seat {elm}</h5>
-                    <label>Name: </label>
+                <div>
+                    <label>Buyer's name: </label>
                     <br/>
-                    <input type="text" placeholder="Type your name..." onChange={(e) => handleChange(e, elm, 'nome')} required />
+                    <input type="text" placeholder="Type your name..." onChange={(e) => handleChange(e, 'nome')} required />
                     <br/>
-                    <label>CPF:</label>
+                    <label>Buyer's CPF:</label>
                     <br/>
-                    <input type="text" placeholder="Type your CPF..." onChange={(e) => handleChange(e, elm, 'cpf')} required />
+                    <input type="text" placeholder="Type your CPF..." onChange={(e) => handleChange(e, 'cpf')} required />
                 </div>
-            ))}
             <button>Reserve seat(s)</button>
         </form>
     );

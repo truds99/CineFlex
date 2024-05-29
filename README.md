@@ -2,6 +2,8 @@
 
 An easy to use web application to booking movie theater tickets
 
+<img src="/src/showingGif.gif" />
+
 Try it out now at https://cine-flex-murex-five.vercel.app
 
 It allows users to browse available movies, select showtimes, and reserve seats. The system is designed to mimic real-world functionalities such as seat selection, booking confirmation, and ticket management. It provides an intuitive user interface and backend connection to handle reservations efficiently.

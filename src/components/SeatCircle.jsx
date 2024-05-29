@@ -12,26 +12,11 @@ export default function SeatCircle ({
             return;
         }
         if (selected) {
-            formData.forEach(elm => {
-                if(elm.idAssento === numberSeat) {
-                    if (!elm.nome && !elm.cpf) {
-                        setSelectedSeats(selectedSeats.filter(elm => elm !== numberSeat));
-                        setSelected(!selected);
-                        setFormData(formData.filter(elm => elm.idAssento !== numberSeat))
-                    }
-                    else {
-                        if(confirm("do you want to remove the seat and lose the filled data?")) {
-                            setSelectedSeats(selectedSeats.filter(elm => elm !== numberSeat))
-                            setSelected(!selected);
-                            setFormData(formData.filter(elm => elm.idAssento !== numberSeat));
-                        }
-                    }
-                } 
-            })
+            setSelectedSeats(selectedSeats.filter(elm => elm !== numberSeat));
+            setSelected(!selected);
         } else {
             setSelectedSeats([...selectedSeats, numberSeat])
             setSelected(!selected);
-            setFormData([...formData, { idAssento: numberSeat }]);
         }
     }
 

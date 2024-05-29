@@ -11,7 +11,7 @@ export default function App() {
   const [movies, setMovies] = useState([]);
   const [movieSessions, setMovieSessions] = useState({});
   const [seats, setSeats] = useState({});
-  const [formData, setFormData] = useState([]);
+  const [formData, setFormData] = useState({name: '', cpf: ''});
   const [selectedSeats, setSelectedSeats] = useState([]);
   
   return (
@@ -31,7 +31,7 @@ export default function App() {
                 <Route path='/success' element={<SuccessPage
                     movies={movies} movieSessions={movieSessions} seats={seats} formData={formData}
                     setSelectedSeats={setSelectedSeats} setFormData={setFormData} setSeats={setSeats}
-                    setMovieSessions={setMovieSessions} setMovies={setMovies}
+                  setMovieSessions={setMovieSessions} setMovies={setMovies} selectedSeats={selectedSeats}
                 />}/>
             </Routes>
         </BrowserRouter>

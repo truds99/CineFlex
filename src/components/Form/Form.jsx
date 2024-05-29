@@ -5,32 +5,29 @@ import { useNavigate } from 'react-router-dom'
 export default function Form({selectedSeats, setFormData, formData}) {
     const navigate = useNavigate();
     
-    function handleChange(e, numbSeat, newValue) {
+    function handleChange(e, newValue) {
         setFormData((prevFormData) => {
-            const updatedData = prevFormData.map((elm) =>
-                elm.idAssento === numbSeat ? { ...elm, [newValue]: e.target.value } : elm
-            );
+            const updatedData = { ...prevFormData, [newValue]: e.target.value };
             return updatedData;
         });
     }
 
-    function isValidsCPF() {
-        for(let i=0; i<formData.length; i++){
-            if(formData[i].cpf.length !== 11 || !/^\d+$/.test(formData[i].cpf)){
-                alert("type only valid(s) CPF (just 11 numbers)");
-                return false;                                                                                                                                   
-            }
+    function isValidCPF() {
+        if(formData.cpf.length !== 11 || !/^\d+$/.test(formData.cpf)){
+            alert("type a valid CPF (just 11 numbers)");
+            return false;                                                                                                                                   
         }
         return true;
     }
 
     function handleForm(e){
         e.preventDefault();
-        if (formData.length === 0) return;
-        if (!isValidsCPF()) return;
+        if (formData.name.length === 0) return;
+        if (!isValidCPF()) return;
         const object = {
-            ids: formData.map(elm => Number(elm.idAssento)),
-            compradores: formData.map(elm => ({ ...elm, idAssento: Number(elm.idAssento) }))
+            ids: selectedSeats,
+            name: formData.name,
+            cpf: formData.cpf
         }
         postBooking(object)
             .catch(() => alert("error reserving seats"))
@@ -42,7 +39,7 @@ export default function Form({selectedSeats, setFormData, formData}) {
                 <div>
                     <label>Buyer's name: </label>
                     <br/>
-                    <input type="text" placeholder="Type your name..." onChange={(e) => handleChange(e, 'nome')} required />
+                    <input type="text" placeholder="Type your name..." onChange={(e) => handleChange(e, 'name')} required />
                     <br/>
                     <label>Buyer's CPF:</label>
                     <br/>

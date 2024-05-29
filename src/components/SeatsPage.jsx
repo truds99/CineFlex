@@ -14,7 +14,7 @@ export default function SeatsPage({ movieSessions, seats, setSeats, formData,
     useEffect (() => {
         if(!movieSessions.posterURL) {
             setSeats({});
-            setFormData([]);
+            setFormData({});
             setSelectedSeats([]);
             navigate('/');
         }
@@ -28,7 +28,7 @@ export default function SeatsPage({ movieSessions, seats, setSeats, formData,
 
     function backPage() {
         setSeats({});
-        setFormData([]);
+        setFormData({});
         setSelectedSeats([]);
         navigate(`/movie/${movieSessions.id}`);
     }

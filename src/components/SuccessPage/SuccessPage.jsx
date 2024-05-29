@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 
 export default function SuccessPage({movieSessions, seats, formData,
-    setFormData, setMovies, setMovieSessions, setSeats, setSelectedSeats}) {
+    setFormData, setMovies, setMovieSessions, setSeats, setSelectedSeats, selectedSeats}) {
     const navigate = useNavigate();
 
     useEffect (() => {
@@ -39,12 +39,10 @@ export default function SuccessPage({movieSessions, seats, formData,
             <h1>Reservation made successfully</h1>
             <h6>Movie and session</h6>
             <p>{movieSessions.title}<br />{ seats.day && seats.day.date } { seats.name && seats.name }</p>
-            {formData.map((elm, idx) => (
-                <div className='buyers' key={idx}>
-                    <h6>Buyer</h6>
-                    <p>Name: {elm.nome}<br />CPF: {formatCPF(elm.cpf)}<br />Seat: {elm.idAssento}</p>
-                </div>
-            ))}
+            <div className='buyers'>
+                <h6>Buyer</h6>
+                <p>Name: {formData.name}<br />CPF: {formatCPF(formData.cpf)}<br />Seats: {selectedSeats}</p>
+            </div>
             <button onClick={backToHome}>Back to Homepage</button>
         </div>
     )

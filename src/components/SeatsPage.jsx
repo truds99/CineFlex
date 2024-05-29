@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { useParams, useNavigate } from 'react-router-dom'
 import { getSeats } from '../services/cineflex'
 import SeatCircle from './SeatCircle'
-import Form from './Form/Form'
+import Form from './Form'
 import Bottom from './Bottom'
 
 export default function SeatsPage({ movieSessions, seats, setSeats, formData,
@@ -87,7 +87,6 @@ const Wrapper = styled.div`
         min-height: 16px;
         color: #FFFFFF;
     }
-
     
     @media (max-width: 398px) {
         & > div:nth-child(3) {

@@ -3,7 +3,7 @@ import Movies from './Movies'
 import Sessions from './Sessions'
 import { useState } from 'react'
 import SeatsPage from './SeatsPage'
-import SuccessPage from './SuccessPage/SuccessPage'
+import SuccessPage from './SuccessPage'
 import Top from './Top'
 import { createGlobalStyle } from 'styled-components'
 
@@ -15,26 +15,26 @@ export default function App() {
   const [selectedSeats, setSelectedSeats] = useState([]);
   
   return (
-        <BrowserRouter>
-            <GlobalStyle />
-            <Top />
-            <Routes>
-                <Route path='/' element={<Movies movies={movies} setMovies={setMovies}/>}/>
-                <Route path='/movie/:idMovie' element={<Sessions
-                    setMovieSessions={setMovieSessions} movieSessions={movieSessions}
-                    movies={movies} setMovies={setMovies}
-                />}/>
-                <Route path='/session/:idSession' element={<SeatsPage movieSessions={movieSessions}
-                    seats={seats} setSeats={setSeats} formData={formData} setFormData={setFormData}
-                    selectedSeats={selectedSeats} setSelectedSeats={setSelectedSeats}
-                />}/>
-                <Route path='/success' element={<SuccessPage
-                    movies={movies} movieSessions={movieSessions} seats={seats} formData={formData}
-                    setSelectedSeats={setSelectedSeats} setFormData={setFormData} setSeats={setSeats}
-                  setMovieSessions={setMovieSessions} setMovies={setMovies} selectedSeats={selectedSeats}
-                />}/>
-            </Routes>
-        </BrowserRouter>
+    <BrowserRouter>
+        <GlobalStyle />
+        <Top />
+        <Routes>
+            <Route path='/' element={<Movies movies={movies} setMovies={setMovies}/>}/>
+            <Route path='/movie/:idMovie' element={<Sessions
+                setMovieSessions={setMovieSessions} movieSessions={movieSessions}
+                movies={movies} setMovies={setMovies}
+            />}/>
+            <Route path='/session/:idSession' element={<SeatsPage movieSessions={movieSessions}
+                seats={seats} setSeats={setSeats} formData={formData} setFormData={setFormData}
+                selectedSeats={selectedSeats} setSelectedSeats={setSelectedSeats}
+            />}/>
+            <Route path='/success' element={<SuccessPage
+                movies={movies} movieSessions={movieSessions} seats={seats} formData={formData}
+                setSelectedSeats={setSelectedSeats} setFormData={setFormData} setSeats={setSeats}
+                setMovieSessions={setMovieSessions} setMovies={setMovies} selectedSeats={selectedSeats}
+            />}/>
+        </Routes>
+    </BrowserRouter>
   )
 }
 

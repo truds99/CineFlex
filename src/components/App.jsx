@@ -72,7 +72,7 @@ const GlobalStyle = createGlobalStyle`
         left: 8%;
         z-index: 3;
         height: 40px;
-        width: 70px;
+        width: 70.1px;
         cursor: pointer;
     }
 

@@ -43,9 +43,3 @@ npm install
 npm run dev
 ```
 This will start the development server using Vite. You can access the application at http://localhost:5173.
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) 
